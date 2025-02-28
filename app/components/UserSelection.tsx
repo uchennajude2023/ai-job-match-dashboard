@@ -18,12 +18,12 @@ interface UserSelectionProps {
 }
 
 const UserSelection: React.FC<UserSelectionProps> = ({ users, onUserSelect }) => {
-  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const userId = parseInt(event.target.value, 10);
     const user = users.find((u) => u.id === userId) || null;
-    setSelectedUser(user);
+    
     if (user) onUserSelect(user);
   };
 
