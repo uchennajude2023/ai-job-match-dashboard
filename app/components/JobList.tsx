@@ -37,13 +37,13 @@ const JobList = () => {
   if (loading) return <p className="text-center pt-40 text-lg">Loading jobs...</p>;
 
   return (
-    <div className=" mx-auto p-6 w-full flex-col md:flex gap-4 justify-evenly ">
+    <div className=" mx-auto p-6 border-8 border-red w-full flex-col md:flex gap-4 justify-evenly ">
       
       {jobs.length === 0 ? (
         <p className="text-gray-500">No jobs available.</p>
       ) : (
         jobs.map((job) => (
-          <div key={job.id} className="bg-white shadow-md p-4 rounded-lg w-full md:max-w-3xl mx-auto mb-4 ">
+          <div key={job.id} className="bg-white shadow-md p-4 rounded-lg mb-4 w-3xl mb:w-full ">
             <h2 className="text-xl font-semibold">{job.title}</h2>
             <p className="text-gray-600">{job.company} • {job.location}</p>
             <p className="text-gray-700 font-medium">{job.salary}</p>

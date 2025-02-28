@@ -1,3 +1,4 @@
+"use client";
 interface ProgressiveBarProps {
     value: number; // Match Score (0 - 100)
   }

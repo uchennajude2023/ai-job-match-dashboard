@@ -1,4 +1,4 @@
-// app/hooks/useUserSkills.ts
+
 import { useState, useMemo } from "react";
 import { User } from "../../types/user"; // Ensure the correct path
 import { Job } from "../../types/types"; // Import Job type
@@ -9,7 +9,7 @@ export const useUserSkills = (job: Job | null) => {
   // Mock users for testing
   const mockUsers: User[] = [
     { id: 1, name: "Emma Okolo", skills: ["React", "JavaScript", "Next.js"] },
-    { id: 2, name: "Ogechi Nkwo", skills: ["UI/UX Design", "CSS", "Figma"] },
+    { id: 2, name: "Ogechi Nkwo", skills: ["React", "CSS", "Figma"] },
   ];
 
   // Handle user selection

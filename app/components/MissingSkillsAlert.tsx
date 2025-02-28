@@ -1,3 +1,4 @@
+"use client";
 interface User {
     id: number;
     name: string;
@@ -5,7 +6,7 @@ interface User {
   }
   
   interface MissingSkillsAlertProps {
-    user: User; // ✅ Ensure 'user' is defined
+    user: User;
     missingSkills: string[];
   }
   
