@@ -7,10 +7,10 @@ interface User {
   skills: string[];
 }
 
-const users: User[] = [
+{/*const users: User[] = [
   { id: 1, name: "Emma Okolo", skills: ["React", "JavaScript", "Next.js"] },
   { id: 2, name: "Ogechi Nkwo", skills: ["UI/UX Design", "CSS", "Figma"] },
-];
+];*/}
 
 interface UserSelectionProps {
   users: User[];
