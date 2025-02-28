@@ -1,5 +1,5 @@
 import Image from "next/image";
-import JobList from "../component/JobList"
+import JobList from "../components/JobList"
 
 export default function Page() {
   return (
