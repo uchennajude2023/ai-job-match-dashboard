@@ -14,17 +14,17 @@ const users: User[] = [
 
 interface UserSelectionProps {
   users: User[];
-  onSelectUser: (user: User) => void;
+  onUserSelect: (user: User) => void;
 }
 
-const UserSelection: React.FC<UserSelectionProps> = ({ onSelectUser }) => {
+const UserSelection: React.FC<UserSelectionProps> = ({ users, onUserSelect }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const userId = parseInt(event.target.value, 10);
     const user = users.find((u) => u.id === userId) || null;
     setSelectedUser(user);
-    if (user) onSelectUser(user);
+    if (user) onUserSelect(user);
   };
 
   return (

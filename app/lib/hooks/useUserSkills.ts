@@ -1,35 +1,27 @@
 // app/hooks/useUserSkills.ts
-import { useState } from "react";
-
-interface User {
-  id: number;
-  name: string;
-  skills: string[];
-}
-
-interface Job {
-  requiredSkills: string[];
-}
-
-const mockUsers: User[] = [
-  { id: 1, name: "John Doe", skills: ["React", "JavaScript", "CSS"] },
-  { id: 2, name: "Jane Smith", skills: ["Next.js", "Tailwind CSS", "TypeScript"] },
-];
+import { useState, useMemo } from "react";
+import { User } from "../../types/user"; // Ensure the correct path
+import { Job } from "../../types/types"; // Import Job type
 
 export const useUserSkills = (job: Job | null) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
-  const [missingSkills, setMissingSkills] = useState<string[]>([]);
 
-  const handleUserChange = (userId: number) => {
-    const user = mockUsers.find((u) => u.id === userId) || null;
+  // Mock users for testing
+  const mockUsers: User[] = [
+    { id: 1, name: "Emma Okolo", skills: ["React", "JavaScript", "Next.js"] },
+    { id: 2, name: "Ogechi Nkwo", skills: ["UI/UX Design", "CSS", "Figma"] },
+  ];
+
+  // Handle user selection
+  const handleUserChange = (user: User) => {
     setSelectedUser(user);
-
-    if (user && job) {
-      setMissingSkills(job.requiredSkills.filter((skill) => !user.skills.includes(skill)));
-    } else {
-      setMissingSkills([]);
-    }
   };
+
+  // Calculate missing skills
+  const missingSkills = useMemo(() => {
+    if (!selectedUser || !job) return [];
+    return job.requiredSkills.filter((skill) => !selectedUser.skills.includes(skill));
+  }, [selectedUser, job]);
 
   return { selectedUser, missingSkills, handleUserChange, mockUsers };
 };

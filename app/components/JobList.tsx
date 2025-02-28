@@ -34,17 +34,16 @@ const JobList = () => {
     fetchJobs();
   }, []);
 
-  if (loading) return <p className="text-center">Loading jobs...</p>;
+  if (loading) return <p className="text-center pt-40 text-lg">Loading jobs...</p>;
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">Job Recommendations</h1>
-
+    <div className=" mx-auto p-6 w-full flex-col md:flex gap-4 justify-evenly ">
+      
       {jobs.length === 0 ? (
         <p className="text-gray-500">No jobs available.</p>
       ) : (
         jobs.map((job) => (
-          <div key={job.id} className="bg-white shadow-md p-4 rounded-lg mb-4">
+          <div key={job.id} className="bg-white shadow-md p-4 rounded-lg w-full md:max-w-3xl mx-auto mb-4 ">
             <h2 className="text-xl font-semibold">{job.title}</h2>
             <p className="text-gray-600">{job.company} • {job.location}</p>
             <p className="text-gray-700 font-medium">{job.salary}</p>
