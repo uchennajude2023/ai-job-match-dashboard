@@ -21,8 +21,9 @@ const JobList = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/jobs");
+        const response = await fetch("https://67c239b961d8935867e5b2c6.mockapi.io/api/v1/jobs");
         const data = await response.json();
+        console.log(data);
         setJobs(data);
       } catch (error) {
         console.error("Error fetching jobs:", error);
